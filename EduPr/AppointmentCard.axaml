@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EduPr.AppointmentCard"
+        Title="AppointmentCard">
+	<Border Background="#ffffff" Padding="30" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15" MaxWidth="600" HorizontalAlignment="Center">
+			<TextBlock Text="Данные записи на приём" FontSize="18" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center" Margin="0 0 0 20"></TextBlock>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Пациент:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbPatient" DisplayMemberBinding="{Binding LastNamePatient}" PlaceholderText="Выберите пациента" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Врач:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbDoctor" DisplayMemberBinding="{Binding LastNameDoctor}" PlaceholderText="Выберите врача" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Услуга:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbService" DisplayMemberBinding="{Binding NameService}" PlaceholderText="Выберите услугу" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Дата:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<DatePicker Grid.Column="1" x:Name="dpDate" Width="250" HorizontalAlignment="Left" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></DatePicker>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Время:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TimePicker Grid.Column="1" x:Name="tpTime" Width="250" HorizontalAlignment="Left" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></TimePicker>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Кабинет:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbCabinet" DisplayMemberBinding="{Binding NumberCabinet}" PlaceholderText="Выберите кабинет" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Статус:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbStatus" PlaceholderText="Выберите статус" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0">
+					<ComboBoxItem Content="Запланирована" IsSelected="True"></ComboBoxItem>
+					<ComboBoxItem Content="Подтверждена"></ComboBoxItem>
+					<ComboBoxItem Content="Отменена"></ComboBoxItem>
+					<ComboBoxItem Content="Не явился"></ComboBoxItem>
+				</ComboBox>
+			</Grid>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0 30 0 0">
+				<Button Content="Отмена" Padding="20,5"  BorderThickness="1 1 1 1" Background="#fff3e0" Foreground="#e65100" BorderBrush="#e65100" Click="BtnCancel_Click"/>
+				<Button Content="Сохранить" Padding="20,5" Background="#e65100" Foreground="#fff3e0" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="BtnSave_Click"/>
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</Window>

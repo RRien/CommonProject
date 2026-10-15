@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EduPr.HeadMainWindow"
+        Width="1200" Height="800">
+	<Grid Background="#f5fff9">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Border Grid.Row="0" Background="#ffffff" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<Grid Margin="10 0">
+				<TextBlock Text="Частная медицинская клиника" Foreground="#e65100" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+				<Button x:Name="btnLogout" Content="Выйти" HorizontalAlignment="Right" Background="#fff3e0" Foreground="#e65100" BorderThickness="1" BorderBrush="#e65100" Padding="15,8" Click="BtnLogout_Click"></Button>
+			</Grid>
+		</Border>
+		<Border Grid.Row="1" Background="#ffffff" BorderBrush="#e0e0e0" BorderThickness="0 0 0 1">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0 10">
+				<Button Content="Аналитика" Background="#fff3e0" Foreground="#e65100" Padding="16" FontSize="15"  FontWeight="Bold" BorderBrush="#e65100" Click="BtnAnalytics_Click"></Button>
+				<Button Content="Врачи" Background="#fff3e0" Foreground="#e65100" Padding="16" FontSize="15"  FontWeight="Bold" BorderBrush="#e65100" Click="BtnDoctors_Click"></Button>
+			</StackPanel>
+		</Border>
+		<ContentControl x:Name="MainContentControl" Grid.Row="2" Margin="20"/>
+	</Grid>
+</Window>

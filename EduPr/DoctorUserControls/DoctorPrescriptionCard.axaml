@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EduPr.DoctorPrescriptionCard"
+        Title="DoctorPrescriptionCard">
+	<Border Background="#ffffff" Padding="30" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15" MaxWidth="500" HorizontalAlignment="Center">
+			<TextBlock Text="Назначение препарата" FontSize="18" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center" Margin="0 0 0 20"></TextBlock>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Приём:" FontWeight="Bold" VerticalAlignment="Center"/>
+				<ComboBox Grid.Column="1" x:Name="cmbAppointment"
+                          PlaceholderText="Выберите приём"
+                          Background="#f9fafb" BorderBrush="#bbeaff" Margin="10,0,0,0">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal" Spacing="10">
+								<TextBlock Text="{Binding DateAppointment}" Width="90"/>
+								<TextBlock Text="{Binding IdPatientNavigation.LastNamePatient}" Width="120"/>
+								<TextBlock Text="{Binding IdServiceNavigation.NameService}" Width="200"/>
+							</StackPanel>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Препарат:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbMedication" DisplayMemberBinding="{Binding NameMedication}" PlaceholderText="Выберите препарат" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Дозировка:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="txtDosage" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10,0,0,0" Watermark="Например: 1 таблетка 3 раза в день"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Длительность (дней):" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<NumericUpDown Grid.Column="1" x:Name="numDuration" Minimum="1" Maximum="365" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></NumericUpDown>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Инструкции:" FontWeight="Bold" VerticalAlignment="Top" Margin="0,10,0,0"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="txtInstructions" AcceptsReturn="True" Height="100" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0  0" Watermark="Особые указания по приёму"></TextBox>
+			</Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,30,0,0">
+				<Button Content="Отмена" Padding="20,5" Background="#fff3e0" Foreground="#e65100" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="BtnCancel_Click"></Button>
+				<Button Content="Сохранить" Padding="20,5" Background="#e65100" Foreground="#fff3e0" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="BtnSave_Click"></Button>
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</Window>

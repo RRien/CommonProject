@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.DoctorReferrals">
+	<StackPanel Spacing="15" Margin="20">
+		<Border Background="#ffffff" Padding="15" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<Grid ColumnDefinitions="*,Auto">
+				<TextBlock Text="Направления на исследования" FontSize="18" FontWeight="Bold" Foreground="#e65100" VerticalAlignment="Center"></TextBlock>
+				<Button Grid.Column="1" Content="Добавить направление" Padding="15,5" Background="#e65100" Foreground="White" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="AddReferral_Click"></Button>
+			</Grid>
+		</Border>
+		<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<DataGrid x:Name="ReferralsGrid" Height="500" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" DoubleTapped="Referral_DoubleTapped">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Дата направления" Binding="{Binding ReferralDateReferral, StringFormat='{}{0:dd.MM.yyyy}'}" Width="150"></DataGridTextColumn>
+					<DataGridTextColumn Header="Пациент" Binding="{Binding IdAppointmentNavigation.IdPatientNavigation.LastNamePatient}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Исследование" Binding="{Binding IdLabResearchNavigation.NameLabResearch}" Width="*"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+		
+	</StackPanel>
+</UserControl>

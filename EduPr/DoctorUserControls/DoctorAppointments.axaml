@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:local="using:EduPr" 
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.DoctorAppointments">
+	<StackPanel Spacing="15" Margin="20">
+		<Border Background="#ffffff" Padding="15" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<Grid ColumnDefinitions="*,Auto,Auto">
+				<TextBlock Text="Моё расписание приёмов" FontSize="18" FontWeight="Bold" Foreground="#e65100" VerticalAlignment="Center"></TextBlock>
+				<DatePicker Grid.Column="1" x:Name="dpFilterDate" Width="500" Margin="10 0 0 0" SelectedDateChanged="DateFilter_Changed"></DatePicker>
+				<Button Grid.Column="2" Content="Показать все" Margin="10 0 0 0" Padding="15,5" Background="#fff3e0" Foreground="#e65100" BorderThickness="1" BorderBrush="#e65100" Click="ShowAll_Click"></Button>
+			</Grid>
+		</Border>
+		<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<DataGrid x:Name="AppointmentsGrid" Height="500" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" DoubleTapped="Appointment_DoubleTapped">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Дата" Binding="{Binding DateAppointment, StringFormat='{}{0:dd.MM.yyyy}'}" Width="120"></DataGridTextColumn>
+					<DataGridTextColumn Header="Время" Binding="{Binding TimeAppointment, StringFormat='{}{0:HH\\:mm}'}" Width="100"></DataGridTextColumn>
+					<DataGridTextColumn Header="Пациент" Binding="{Binding IdPatientNavigation.LastNamePatient}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Услуга" Binding="{Binding IdServiceNavigation.NameService}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Кабинет" Binding="{Binding IdCabinetNavigation.NumberCabinet}" Width="80"></DataGridTextColumn>
+					<DataGridTextColumn Header="Статус" Binding="{Binding IdStatusNavigation.NameStatus}" Width="120"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+		<local:PaginationControl x:Name="Pagination" PageSize="10"/>
+	</StackPanel>
+</UserControl>

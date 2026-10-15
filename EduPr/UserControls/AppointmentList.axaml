@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.AppointmentList">
+	<StackPanel Spacing="15" Margin="20">
+
+		<Border Background="#ffffff" Padding="15" BorderBrush="#e0e0e0" BorderThickness="1">
+			<Grid ColumnDefinitions="*,Auto,Auto">
+				<TextBox x:Name="searchTb" Watermark="Поиск по пациенту или врачу" Background="#f9fafb" BorderBrush="#bbeaff" Padding="10" TextChanged="Search_TextChanged"></TextBox>
+				<ComboBox x:Name="statusFilter" Grid.Column="1" Margin="10 0 0 0" Width="200" SelectionChanged="StatusFilter_Changed">
+					<ComboBoxItem Content="Все статусы" IsSelected="True"></ComboBoxItem>
+					<ComboBoxItem Content="Запланирована"></ComboBoxItem>
+					<ComboBoxItem Content="Подтверждена"></ComboBoxItem>
+					<ComboBoxItem Content="Завершена"></ComboBoxItem>
+					<ComboBoxItem Content="Отменена"></ComboBoxItem>
+					<ComboBoxItem Content="Не явился"></ComboBoxItem>
+				</ComboBox>
+
+				<Button Grid.Column="2" Content="Найти" Margin="10 0 0 0" Padding="20,10" Background="#fff3e0" Foreground="#e65100" BorderThickness="1" BorderBrush="#e65100" Click="Search_Click"></Button>
+			</Grid>
+		</Border>
+
+		<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<DataGrid x:Name="AppointmentsGrid" MinHeight="300" MaxHeight="150" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal" DoubleTapped="Appointment_DoubleTapped">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Дата" Binding="{Binding DateAppointment, StringFormat=\{0:dd.MM.yyyy\}}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Время" Binding="{Binding TimeAppointment, StringFormat=\{0:hh\\:mm\}}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Пациент" Binding="{Binding IdPatientNavigation.LastNamePatient}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Врач" Binding="{Binding IdDoctorNavigation.LastNameDoctor}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Услуга" Binding="{Binding IdServiceNavigation.NameService}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Статус" Binding="{Binding IdStatusNavigation.NameStatus}" Width="130"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+
+		<Button Content="Добавить запись" HorizontalAlignment="Right" Padding="20,10" FontSize="14" FontWeight="Bold" Background="#e65100" Foreground="#fff3e0" BorderThickness="1" BorderBrush="#e65100" Click="AddAppointment_Click"></Button>
+	</StackPanel>
+</UserControl>

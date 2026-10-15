@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.ReviewList">
+	<StackPanel Spacing="15" Margin="20" >
+	<Border Background="#ffffff" Padding="15" BorderBrush="#e0e0e0" BorderThickness="1">
+		<Grid ColumnDefinitions="*,Auto">
+			<TextBox x:Name="searchTb" Watermark="Поиск по пациенту или врачу" Background="#f9fafb" BorderBrush="#bbeaff" Padding="10" TextChanged="Search_TextChanged"/>
+			<Button Grid.Column="1" Content="Найти" Margin="10 0 0 0" Padding="20,5" Background="#fff3e0" Foreground="#e65100" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="Search_Click"/>
+		</Grid>
+	</Border>
+	<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<DataGrid x:Name="ReviewsGrid" Height="400" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Дата" Binding="{Binding CreatedReview, StringFormat=\{0:dd.MM.yyyy\}}" Width="120"></DataGridTextColumn>
+				<DataGridTextColumn Header="Пациент" Binding="{Binding IdPatientNavigation.LastNamePatient}" Width="*"></DataGridTextColumn>
+				<DataGridTextColumn Header="Врач" Binding="{Binding IdDoctorNavigation.LastNameDoctor}" Width="*"></DataGridTextColumn>
+				<DataGridTextColumn Header="Оценка" Binding="{Binding RatingReview}" Width="80"></DataGridTextColumn>
+				<DataGridTextColumn Header="Комментарий" Binding="{Binding CommentReview}" Width="150"></DataGridTextColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+	</Border>
+	</StackPanel>
+</UserControl>

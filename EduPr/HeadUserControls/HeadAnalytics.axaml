@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.HeadAnalytics">
+	<StackPanel Spacing="20">
+		<TextBlock  Text="Сводная аналитика" FontSize="20" FontWeight="Bold" Foreground="#e65100"></TextBlock>
+		<Grid ColumnDefinitions="*,*,*" ColumnSpacing="10" >
+			<Border Grid.Column="0" Grid.Row="0" Background="#e3f2fd" Padding="20" CornerRadius="8">
+				<StackPanel>
+					<TextBlock Text="Всего приёмов" FontSize="14" Foreground="#1565c0"></TextBlock>
+					<TextBlock x:Name="AllAppointments" Text="0" FontSize="32" FontWeight="Bold" Foreground="#0d47a1"/>
+				</StackPanel>
+			</Border>
+			<Border Grid.Column="1" Grid.Row="0" Background="#e8f5e9" Padding="20" CornerRadius="8">
+				<StackPanel>
+					<TextBlock Text="Общая выручка" FontSize="14" Foreground="#2e7d32"></TextBlock>
+					<TextBlock x:Name="txtTotalRevenue" Text="0 ₽" FontSize="32" FontWeight="Bold" Foreground="#1b5e20"></TextBlock>
+				</StackPanel>
+			</Border>
+			<Border Grid.Column="2" Grid.Row="0" Background="#fff3e0" Padding="20" CornerRadius="8">
+				<StackPanel>
+					<TextBlock Text="Врачей всего" FontSize="14" Foreground="#e65100"></TextBlock>
+					<TextBlock x:Name="txtTotalDoctors" Text="0" FontSize="32" FontWeight="Bold" Foreground="#bf360c"></TextBlock>
+				</StackPanel>
+			</Border>
+		</Grid>
+	</StackPanel>
+</UserControl>

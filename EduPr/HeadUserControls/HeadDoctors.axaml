@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.HeadDoctors">
+	<StackPanel Spacing="15">
+		<TextBlock Text="Справочник врачей" FontSize="20" FontWeight="Bold" Foreground="#e65100"></TextBlock>
+		<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<DataGrid x:Name="DoctorsGrid" Height="400" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Фамилия" Binding="{Binding LastNameDoctor}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Имя" Binding="{Binding FirstNameDoctor}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Отчество" Binding="{Binding MiddleNameDoctor}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Специализация" Binding="{Binding IdSpecializationNavigation.NameSpecialization}" Width="150"></DataGridTextColumn>
+					<DataGridTextColumn Header="Отделение" Binding="{Binding IdDepartmentNavigation.NameDepartment}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Телефон" Binding="{Binding PhoneDoctor}" Width="150"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+	</StackPanel>
+</UserControl>

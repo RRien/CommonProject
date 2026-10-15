@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.PatientPersonal">
+	<Border Background="#ffffff" Padding="30" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15" MaxWidth="600" HorizontalAlignment="Center">
+			<TextBlock Text="Личные данные пациента" FontSize="18" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center" Margin="0 0 0 20"/>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Фамилия:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="LastNameTb" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Имя:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="FirstNameTb" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Отчество:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="MiddleNameTb" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Телефон:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="PhoneTb" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Дата рождения:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<DatePicker Grid.Column="1" x:Name="dpBirthDate" HorizontalAlignment="Left" Width="500" Margin="10 0 0 0"></DatePicker>
+			</Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0 30 0 0">
+				<Button Content="Сохранить" Padding="20,8" Background="#e65100" Foreground="#fff3e0" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="BtnSave_Click"/>
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</UserControl>

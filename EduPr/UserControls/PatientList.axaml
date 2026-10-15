@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.PatientList">
+	<StackPanel Spacing="15" Margin="20">
+		<!--<TextBlock Text="Пациенты" FontSize="22" FontWeight="Bold" Foreground="#00695c"/>-->
+		<Border Background="#ffffff" Padding="15" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<Grid ColumnDefinitions="*,Auto">
+				<TextBox x:Name="searchPatientTb" Watermark="Поиск по ФИО или телефону"  Padding="10" BorderBrush="#bbeaff" TextChanged="SearchTC"></TextBox>
+				<Button Grid.Column="1" Content="Найти" Margin="10 0 0 0" Padding="20 10" Background="#fff3e0" Foreground="#e65100" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="SearchPatient"></Button>
+			</Grid>
+		</Border>
+		<Border Background="#ffffff" Padding="10" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+			<DataGrid x:Name="DataItems" MinHeight="300" MaxHeight="150" AutoGenerateColumns="False" IsReadOnly="True" GridLinesVisibility="Horizontal" DoubleTapped="TblPatients_DoubleTapped">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="ID" Binding="{Binding IdPatient}" Width="60"></DataGridTextColumn>
+					<DataGridTextColumn Header="Фамилия" Binding="{Binding LastNamePatient}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Имя" Binding="{Binding FirstNamePatient}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Телефон" Binding="{Binding PhonePatient}" Width="150"></DataGridTextColumn>
+					<DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDatePatient, StringFormat=\{0:dd.MM.yyyy\}}" Width="190"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Border>
+		<Button Content="Добавить пациента" HorizontalAlignment="Right" Padding="5 10" FontSize="14" FontWeight="Bold" Background="#e65100" Foreground="#fff3e0" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="AddPatBtn_Click"></Button>
+	</StackPanel>
+</UserControl>

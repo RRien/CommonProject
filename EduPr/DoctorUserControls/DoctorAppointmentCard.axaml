@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EduPr.DoctorAppointmentCard"
+        Title="DoctorAppointmentCard">
+	<Border Background="#ffffff" Padding="30" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15" MaxWidth="600" HorizontalAlignment="Center">
+
+			<TextBlock Text="Заполнение медицинской карты" FontSize="18" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center" Margin="0 0 0 20"></TextBlock>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Пациент:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBlock Grid.Column="1" x:Name="txtPatient" VerticalAlignment="Center"></TextBlock>
+			</Grid>
+
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Услуга:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBlock Grid.Column="1" x:Name="txtService" VerticalAlignment="Center"></TextBlock>
+			</Grid>
+
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Дата и время:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBlock Grid.Column="1" x:Name="txtDateTime" VerticalAlignment="Center" ></TextBlock>
+			</Grid>
+
+			<Separator Margin="0 10"/>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Жалобы:" FontWeight="Bold"  VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="txtComplaints" AcceptsReturn="True" Height="80" Background="#f9fafb" BorderBrush="#bbeaff" Watermark="Опишите жалобы пациента"></TextBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Диагноз:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<TextBox Grid.Column="1" x:Name="txtDiagnosis" AcceptsReturn="True" Height="80" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0" Watermark="Предварительный или окончательный диагноз"></TextBox>
+			</Grid>
+
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Рекомендации:" FontWeight="Bold" VerticalAlignment="Center"/>
+				<TextBox Grid.Column="1" x:Name="txtRecommendations" AcceptsReturn="True" Height="80" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10,0,0,0" Watermark="Назначения, рекомендации по лечению"></TextBox>
+			</Grid>
+
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Статус приёма:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbStatus" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0">
+					<ComboBoxItem Content="Запланирована"></ComboBoxItem>
+					<ComboBoxItem Content="Подтверждена"></ComboBoxItem>
+					<ComboBoxItem Content="Завершена" IsSelected="True"></ComboBoxItem>
+					<ComboBoxItem Content="Отменена"></ComboBoxItem>
+					<ComboBoxItem Content="Не явился"></ComboBoxItem>
+				</ComboBox>
+			</Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0 10 0 0">
+				<Button Content="Отмена" Padding="20,5" Background="#fff3e0" Foreground="#e65100" BorderThickness="1 1 1 1" BorderBrush="#e65100" Click="BtnCancel_Click"></Button>
+				<Button Content="Сохранить" Padding="20,5" Background="#e65100" Foreground="#fff3e0"
+                        BorderThickness="1" BorderBrush="#e65100" Click="BtnSave_Click"></Button>
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</Window>

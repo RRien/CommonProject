@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="EduPr.DoctorReferralsCard"
+        Title="Направление на исследование">
+	<Border Background="#ffffff" Padding="30" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15" MaxWidth="500" HorizontalAlignment="Center">
+			<TextBlock Text="Направление на исследование" FontSize="18" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center" Margin="0 0 0 20"></TextBlock>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Приём:" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+				<ComboBox Grid.Column="1" x:Name="cmbAppointment" PlaceholderText="Выберите приём" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal" Spacing="10">
+								<TextBlock Text="{Binding DateAppointment}" Width="100"></TextBlock>
+								<TextBlock Text="{Binding IdPatientNavigation.LastNamePatient}" Width="120"></TextBlock>
+								<TextBlock Text="{Binding IdServiceNavigation.NameService}" Width="200"></TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</Grid>
+			<Grid ColumnDefinitions="150,*">
+				<TextBlock Text="Исследование:" FontWeight="Bold" VerticalAlignment="Center"/>
+				<ComboBox Grid.Column="1" x:Name="cmbResearch" DisplayMemberBinding="{Binding NameLabResearch}" PlaceholderText="Выберите исследование" Background="#f9fafb" BorderBrush="#bbeaff" Margin="10 0 0 0"></ComboBox>
+			</Grid>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0 320 0 0">
+				<Button Content="Отмена" Padding="20,8" Background="#fff3e0" Foreground="#e65100" BorderThickness="1" BorderBrush="#e65100" Click="BtnCancel_Click"></Button>
+				<Button Content="Сохранить" Padding="20,8" Background="#e65100" Foreground="White" BorderThickness="1" BorderBrush="#e65100" Click="BtnSave_Click"></Button>
+			</StackPanel>
+
+		</StackPanel>
+	</Border>
+</Window>

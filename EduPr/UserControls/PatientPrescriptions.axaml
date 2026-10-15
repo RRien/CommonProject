@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EduPr.PatientPrescriptions">
+	<Border Background="#ffffff" Padding="20" BorderBrush="#e0e0e0" BorderThickness="1 1 1 1">
+		<StackPanel Spacing="15">
+			<TextBlock Text="Назначения препаратов" FontSize="20" FontWeight="Bold" Foreground="#e65100" HorizontalAlignment="Center"></TextBlock>
+			<DataGrid x:Name="PrescriptionsGrid" Height="400" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Дата приёма" Binding="{Binding IdAppointmentNavigation.DateAppointment, StringFormat=\{0:dd.MM.yyyy\}}" Width="100"></DataGridTextColumn>
+					<DataGridTextColumn Header="Препарат" Binding="{Binding IdMedicationNavigation.NameMedication}" Width="*"></DataGridTextColumn>
+					<DataGridTextColumn Header="Дозировка" Binding="{Binding DosagePrescription}" Width="150"></DataGridTextColumn>
+					<DataGridTextColumn Header="Длительность (дней)" Binding="{Binding DurationDaysPrescription}" Width="130"></DataGridTextColumn>
+					<DataGridTextColumn Header="Инструкции" Binding="{Binding InstructionsPrescription}" Width="*"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</StackPanel>
+	</Border>
+</UserControl>
