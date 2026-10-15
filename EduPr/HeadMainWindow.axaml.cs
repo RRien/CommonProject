@@ -21,6 +21,10 @@ public partial class HeadMainWindow : Window
     {
         MainContentControl.Content = new HeadDoctors();
     }
+    private void BtnHeadAdvancedAnalytics_Click(object? sender, RoutedEventArgs e)
+    {
+        MainContentControl.Content = new HeadAdvancedAnalytics();
+    }
 
     private void BtnLogout_Click(object? sender, RoutedEventArgs e)
     {
