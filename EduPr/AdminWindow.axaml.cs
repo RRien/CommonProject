@@ -10,6 +10,7 @@ public partial class AdminWindow : Window
     {
         InitializeComponent();
     }
+
     private void LogButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         var mainW = new MainWindow();
@@ -21,15 +22,17 @@ public partial class AdminWindow : Window
     {
         MainContentControl.Content = new PatientList();
     }
+
     private void BtnAppoints_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MainContentControl.Content = new AppointmentList();
-
     }
+
     private void BtnPayments_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MainContentControl.Content = new PaymentsList();
     }
+
     private void BtnReviews_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MainContentControl.Content = new ReviewList();
@@ -39,5 +42,10 @@ public partial class AdminWindow : Window
     Avalonia.Interactivity.RoutedEventArgs e)
     {
         MainContentControl.Content = new PatientAppealsControl();
+
+    // --- НАШ НОВЫЙ МЕТОД ДЛЯ КНОПКИ "ПОСТАВЩИКИ" ---
+    private void BtnSuppliers_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        MainContentControl.Content = new SupplierControl();
     }
 }
