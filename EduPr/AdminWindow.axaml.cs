@@ -34,4 +34,10 @@ public partial class AdminWindow : Window
     {
         MainContentControl.Content = new ReviewList();
     }
+    private void BtnAppeals_Click(
+    object? sender,
+    Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        MainContentControl.Content = new PatientAppealsControl();
+    }
 }
